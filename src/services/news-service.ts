@@ -4,9 +4,9 @@ import * as newsRepository from "../repositories/news-repository";
 import { CreateNewsData } from "../repositories/news-repository";
 
 export async function getNews(page: number, order: "asc" | "desc", title: string) {
-  const pageSize = 10; // Tamanho da página (padrão é 10)
+  const pageSize = 10;
 
-  const skip = (page - 1) * pageSize; // Calculando o "offset" baseado na página solicitada
+  const skip = (page - 1) * pageSize;
 
   return newsRepository.getNews(skip, pageSize, order, title);
 }
