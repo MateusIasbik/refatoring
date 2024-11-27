@@ -19,11 +19,6 @@ export async function getNews(req: Request, res: Response) {
   }
 }
 
-// export async function getNews(req: Request, res: Response) {
-//   const news = await service.getNews();
-//   return res.send(news);
-// }
-
 export async function getNewsById(req: Request, res: Response) {
   const id = parseInt(req.params.id);
 

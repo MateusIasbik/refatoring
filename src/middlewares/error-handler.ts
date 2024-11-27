@@ -1,23 +1,21 @@
 import { Request, Response, NextFunction } from "express";
 import httpStatus from "http-status";
 
-// Define o tipo de erro com a propriedade "type"
 type AppError = {
   type: string;
   message: string;
 };
 
 export default function errorHandlingMiddleware(
-  error: Error | AppError, // Aceitar tanto erro padrão quanto o erro personalizado
+  error: Error | AppError, 
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  console.log(error); // Logar para verificar o erro completo
+  console.log(error); 
 
-  // Verificar se é um erro do tipo personalizado
   if ("type" in error) {
-    const { type, message } = error as AppError; // Agora podemos acessar "type" com segurança
+    const { type, message } = error as AppError; 
 
     if (type === "notFound") {
       return res.status(httpStatus.NOT_FOUND).send(message);
@@ -30,6 +28,5 @@ export default function errorHandlingMiddleware(
     }
   }
 
-  // Se não for um erro do tipo "AppError", então pode ser um erro genérico
   return res.status(httpStatus.INTERNAL_SERVER_ERROR).send("Internal Server Error");
 }

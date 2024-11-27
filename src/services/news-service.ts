@@ -11,10 +11,6 @@ export async function getNews(page: number, order: "asc" | "desc", title: string
   return newsRepository.getNews(skip, pageSize, order, title);
 }
 
-// export async function getNews() {
-//   return newsRepository.getNews();
-// }
-
 export async function getNewsById(id: number) {
   const news = await newsRepository.getNewsById(id);
   if (!news) throw notFoundError(id);

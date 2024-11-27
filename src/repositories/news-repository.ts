@@ -18,14 +18,6 @@ export async function getNews(skip: number, take: number, order: "asc" | "desc",
     },
   });
 }
-
-// export function getNews() {
-//   return prisma.news.findMany({
-//     orderBy: {
-//       publicationDate: "desc"
-//     }
-//   }); 
-// }
  
 export function getNewsById(id: number) {
   return prisma.news.findUnique({
