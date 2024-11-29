@@ -1,4 +1,4 @@
-import { badRequestDate, badRequestText, conflictError, notFoundError } from "errors/errors";
+import { badRequestDate, badRequestText, conflictError, notFoundError } from "../errors/errors";
 import prisma from "../database";
 import * as newsRepository from "../repositories/news-repository";
 import { CreateNewsData } from "../repositories/news-repository";
